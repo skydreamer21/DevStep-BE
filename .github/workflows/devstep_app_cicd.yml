@@ -14,7 +14,7 @@ on:
   #  branches: [ "main" ]
 
 env:
-  DOCKER_IMAGE_NAME: devstep-image
+  DOCKER_IMAGE_NAME: dev-step/devstep-app-server
   CONTAINER_NAME: devstep_app
 
 jobs:
