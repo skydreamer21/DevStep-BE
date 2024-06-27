@@ -85,7 +85,7 @@ jobs:
           fi
 
           sudo docker pull ${{ env.DOCKER_IMAGE_NAME }}:latest
-          sudo docker run --name ${{ env.CONTIANER_NAME }} -d -p 8080:8080 ${{ env.DOCKER_IMAGE_NAME }}:latest
+          sudo docker run --name ${{ env.CONTAINER_NAME }} -d -p 8080:8080 ${{ env.DOCKER_IMAGE_NAME }}:latest
           
   dependency-submission:
 
