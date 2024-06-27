@@ -80,8 +80,11 @@ jobs:
           CONTAINER_ID=$(sudo docker ps -q --filter "name=${{ env.CONTAINER_NAME }}")
 
           if [ ! -z "$CONTAINER_ID" ]; then
+            echo $CONTAINER_ID
             sudo docker stop $CONTAINER_ID
             sudo docker rm $CONTAINER_ID
+          else
+            echo "CONTAINER_ID NOT FOUND"
           fi
 
           sudo docker pull ${{ env.DOCKER_IMAGE_NAME }}:latest
