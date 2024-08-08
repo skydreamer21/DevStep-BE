@@ -7,6 +7,6 @@ COPY ${JAR_FILE} /app/app.jar
 
 RUN mkdir -p /app/logs
 
-ENV JAVA_OPTS="-Xlog:gc*,safepoint:file=/app/logs/gc.log:time,level,tags:filecount=50,filesize=1m -XX:+UseG1GC"
+ENV JAVA_OPTS="-Xlog:gc*,safepoint:file=/app/logs/gc.log:time,level,tags:filecount=50,filesize=5k -XX:+UseG1GC"
 # ENTRYPOINT ["java", "-XX:UseG1GC", "" "-jar", "/app/app.jar"]
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar /app/app.jar"]
