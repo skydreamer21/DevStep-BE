@@ -12,5 +12,6 @@ RUN echo $HOSTNAME_ARG
 # ENV JAVA_OPTS="-Xlog:gc*,safepoint:file=/app/logs/gc_${HOSTNAME}.log:time,level,tags:filecount=50,filesize=5k -XX:+UseG1GC"
 ENV JAVA_OPTS=""
 RUN export JAVA_OPTS="-Xlog:gc*,safepoint:file=/app/logs/gc_${HOSTNAME_ARG}.log:time,level,tags:filecount=50,filesize=5k -XX:+UseG1GC"
+RUN echo $JAVA_OPTS
 # ENTRYPOINT ["java", "-XX:UseG1GC", "" "-jar", "/app/app.jar"]
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar /app/app.jar"]
