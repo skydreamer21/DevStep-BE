@@ -46,7 +46,7 @@ jobs:
       run: ls -al
 
     - name: Build the Docker image
-      run: docker build . --file DockerFile --tag ${{ env.DOCKER_IMAGE_NAME }}:latest
+      run: docker build . --file DockerFile --build-arg HOSTNAME_ARG=$HOSTNAME --tag ${{ env.DOCKER_IMAGE_NAME }}:latest
 
     - name: Login to Docker Hub using PAT
       run : echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
